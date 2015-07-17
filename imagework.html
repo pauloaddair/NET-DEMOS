@@ -1,0 +1,86 @@
+
+
+<script src="phonegap.js"></script>
+
+<script> 
+
+
+
+ function myGo(){ 
+
+    var myImage = document.getElementById("ringoImage"); 
+    myCanvas = document.createElement("canvas");     // do not use var, not sure why
+ 
+    myCanvas.width = myImage.width; 
+    myCanvas.height = myImage.height; 
+    myCanvas.getContext("2d").drawImage(myImage, 0, 0); 
+  
+    document.getElementById("canvasHolder").appendChild(myCanvas); 
+
+}
+
+
+
+
+
+function myGo2(){
+   var myImage2 = new Image(); 
+   myImage2.src = myCanvas.toDataURL('image/png'); 
+
+   document.getElementById('pngHolder').appendChild(myImage2); 
+ 
+}
+
+
+
+
+
+function myGo3(){
+
+   window.open('http://rocksetta.com','_system');
+   
+ 
+}
+
+
+
+
+
+
+
+
+
+ </script> 
+
+
+
+
+<input type=button value="Image (many formats) to Canvas" onclick="{myGo()}">
+
+<input type=button value="Canvas to Image (PNG)" onclick="{myGo2()}"><br>
+
+<input type=button value="Open Chrome to save image" onclick="{myGo3()}"><br>
+
+
+
+	the original<br>
+	<img src="http://rocksetta.com/rocksetta-music-shapes/numbersLetters7.png" id="ringoImage" />
+	
+	
+The canvas <br>
+	<p id="canvasHolder">
+		
+	</p>
+	
+the new image<br>
+	<p id="pngHolder">
+		
+	</p>
+	
+
+
+<a href="myCanvas.toDataURL('image/png');" download="smile.png">Download image</a>
+
+
+
+<br><br><hr>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+<script type="text/javascript" charset="utf-8">
+
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+       // alert('Camera device ready to use');
+    }
+  
+
+    // onSuccess: Get a snapshot of the current acceleration
+    //
+    
+    
+    
+        function onURISuccess(imageURI) {
+   //  alert('photo URI success')   
+   document.getElementById('myImage1').src = imageURI;
+
+      
+    }
+
+    // onError: Failed to get the acceleration
+    //
+    function onCameraError(message) {
+        alert('Failed because: ' + message)
+    }
+    
+    
+    
+    function onDataSuccess(imageData) {
+   //  alert('photo data success')   
+     document.getElementById('myImage2').src =  "data:image/jpeg;base64," + imageData;
+    // var image = document.getElementById('myImage1');
+    // image.src = imageURI;
+
+      
+    }
+
+
+    
+
+
+
+</script>
+</head>
+<body  
+
+}">
+<font style="font-size:30px">  
+
+<h3>Using the Camera with Phonegap Build</h3>
+
+Image URI:<img  id="myImage1"   style="display:block; width:500px; height:500px;" src=""      /><br>
+
+
+   
+
+<input type=button value="Picture as URI" style="font-size:30px" onclick="{
+
+    navigator.camera.getPicture(onURISuccess, onCameraError, { quality: 50, allowEdit : true, encodingType: Camera.EncodingType.PNG, destinationType: Camera.DestinationType.FILE_URI });
+    alert( Camera.DestinationType.FILE_URI)
+  
+}">
+
+
+
+   
+
+
+<input type=button value="Back" style="font-size:30px" onclick="{
+
+     location='index.html' 
+  
+}">
+    
+       
+
+   
+<input type=button value="getPixel 1" style="font-size:30px" onclick="{
+
+
+
+
+
+
+var can = document.getElementById('canvas1');
+var ctx = can.getContext('2d');
+
+
+//ctx.fillRect(50,50,200,200); // something in the background
+
+var img = new Image();
+img.onload = function() {
+    ctx.drawImage(img, 0, 0);
+}
+
+
+  img.src =   document.getElementById('myImage1').src
+
+var imgd = ctx.getImageData(0, 0, img.width, img.height);
+
+ctx.putImageData(img, 0, 0);
+
+
+   
+
+  
+}">
+
+
+
+
+
+
+
+<input type=button value="getPixel 2" style="font-size:30px; width:1000px" onclick="{
+
+
+
+
+
+
+var can = document.getElementById('canvas1');
+var ctx = can.getContext('2d');
+
+
+//ctx.fillRect(50,50,200,200); // something in the background
+
+var img = new Image();
+img.onload = function() {
+    ctx.drawImage(img, 0, 0);
+}
+
+
+  img.src =   document.getElementById('myImage1').src
+
+var imgd = ctx.getImageData(0, 0, img.width, img.height);
+//var pix = imgd.data;
+alert(imgd.data.length)
+// Loop over each pixel and invert the color.
+for (var i = 0; i < imgd.data.length; i += 4;) {
+    imgd.data[i  ] = 255 - imgd.data[i  ]; // red
+    imgd.data[i+1] = 255 - imgd.data[i+1]; // green
+    imgd.data[i+2] = 255 - imgd.data[i+2]; // blue
+    // i+3 is alpha (the fourth element)
+}
+
+// Draw the ImageData at the given (x,y) coordinates.
+ctx.putImageData(imgd.data, 0, 0);
+
+
+   
+
+  
+}">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+<input type=hidden value="other" style="font-size:30px" onclick="{
+
+// get the image
+var img2 = document.getElementById('myImage1');
+// create and customize the canvas
+var canvas2 = document.createElement('canvas2');
+canvas2.width = 500;
+canvas2.height = 200;
+document.body.appendChild(canvas2);
+// get the context
+var ctx2 = canvas2.getContext('2d');
+// draw the image into the canvas
+ctx2.drawImage(img2, 0, 0);
+
+var imgd = ctx2.getImageData(x, y, width, height);
+var pix = imgd.data;
+
+// Loop over each pixel and invert the color.
+for (var i = 0, n = pix.length; i < n; i += 4) {
+    pix[i  ] = 255 - pix[i  ]; // red
+    pix[i+1] = 255 - pix[i+1]; // green
+    pix[i+2] = 255 - pix[i+2]; // blue
+    // i+3 is alpha (the fourth element)
+}
+
+// Draw the ImageData at the given (x,y) coordinates.
+ctx2.putImageData(imgd, x, y);
+  
+  
+}">
+         
+       
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<input type=button value=wow3 onclick="{  myFunc()}"><br>
+
+
+<script>
+function myFunc(){
+
+// get the image
+var img2.src =    document.getElementById('myImage1').src
+// create and customize the canvas
+var canvas = document.createElement("canvas");
+canvas.width = 500;
+canvas.height = 200;
+document.body.appendChild(canvas);
+// get the context
+var ctx2 = canvas.getContext("2d");
+// draw the image into the canvas
+ctx2.drawImage(img2, 0, 0);
+
+
+
+
+
+// get the image data object
+var image = ctx2.getImageData(0, 0, 500, 200);
+// get the image data values 
+var imageData = image.data,
+length = imageData.length;
+// set every fourth value to 50
+for(var i=3; i < length; i+=4){  
+    imageData[i] = 10;
+}
+// after the manipulation, reset the data
+image.data = imageData;
+// and put the imagedata back to the canvas
+ctx2.putImageData(image, 0, 0);
+
+document.getElementById("myImage3").src = canvas.toDataURL();
+
+
+
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+   <canvas id="canvas1" width="500" height="500"       onmousedown = "myFunM(evt)"></canvas>
+
+
+
+
+
+
+<img id="myImage3" src="" style="width:300px; height:300px" ><br>sadfjhasdf
+ 
+ 
+       
+</font> 
+ 
+ <script>
+
+   function myFunM(evt) {
+        //  get mouse coordinates from event parameter
+        var mouseX = parseInt(evt.offsetX);
+        var mouseY = parseInt(evt.offsetY);
+
+        //  get imageData object from canvas
+        var imagedata = myContext.getImageData(0, 0,  myCanvas.width, myCanvas.height);
+
+        //  get pixelArray from imagedata object
+        var data = imagedata.data;  
+
+        //  calculate offset into array for pixel at mouseX/mouseY
+        var i = ((mouseY * canvas.width) + mouseX) * 4;
+
+        //  get RGBA values
+        var r = data[i];        
+        var g = data[i+1];
+        var b = data[i+2];
+        var a = data[i+3];
+
+alert()
+
+}
+ 
+ 
+ 
+ </script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+       
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
