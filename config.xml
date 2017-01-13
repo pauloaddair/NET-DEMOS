@@ -2,8 +2,8 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.novaeratec.appdemos"
-		versionCode = "10001"
-        version   = "1.0.102">
+		versionCode = "10003"
+        version   = "1.0.103">
     <name>Demos for Nova Era Tec</name>
 
     <description>
@@ -19,7 +19,6 @@
 	<plugin name="cordova-plugin-geolocation" source="npm" spec="~2.1.0"/>
 	<gap:plugin name="cordova-plugin-socialsharing" source="npm" />
 
-	<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
 
     <preference name="phonegap-version" value="3.7.0" />
     <preference name="orientation"      value="default" />
