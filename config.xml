@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.novaeratec.appdemos"
 		versionCode = "10001"
-        version   = "1.0.001">
+        version   = "1.0.102">
     <name>Demos for Nova Era Tec</name>
 
     <description>
